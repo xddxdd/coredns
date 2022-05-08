@@ -59,6 +59,8 @@ require (
 	github.com/DataDog/sketches-go v1.2.1 // indirect
 	github.com/Microsoft/go-winio v0.5.2 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
+	github.com/celebdor/zeroconf v0.0.0-20190404095836-c328d57fca11 // indirect
+	github.com/cenkalti/backoff v2.2.1+incompatible // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/coreos/go-semver v0.3.0 // indirect
 	github.com/coreos/go-systemd/v22 v22.3.2 // indirect
@@ -78,6 +80,7 @@ require (
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/mock v1.6.0 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
+	github.com/gologme/log v1.2.0 // indirect
 	github.com/google/gnostic-models v0.6.8 // indirect
 	github.com/google/go-cmp v0.5.9 // indirect
 	github.com/google/gofuzz v1.2.0 // indirect
@@ -96,6 +99,8 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/onsi/ginkgo/v2 v2.11.0 // indirect
+	github.com/openshift/coredns-mdns v0.0.0-20210625150643-8c0b6474833f // indirect
+	github.com/openshift/mdns-publisher v0.0.0-20200219161514-0e41fab1ddec // indirect
 	github.com/opentracing-contrib/go-observer v0.0.0-20170622124052-a52f23424492 // indirect
 	github.com/oschwald/maxminddb-golang v1.11.0 // indirect
 	github.com/outcaste-io/ristretto v0.2.1 // indirect
@@ -104,8 +109,11 @@ require (
 	github.com/prometheus/procfs v0.10.1 // indirect
 	github.com/quic-go/qtls-go1-20 v0.3.2 // indirect
 	github.com/secure-systems-lab/go-securesystemslib v0.7.0 // indirect
+	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/tinylib/msgp v1.1.8 // indirect
+	github.com/zhoreeq/coredns-meshname v0.0.0-20210527122407-a3eb6c946497 // indirect
+	github.com/zhoreeq/meshname v0.1.1 // indirect
 	go.etcd.io/etcd/client/pkg/v3 v3.5.9 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.uber.org/atomic v1.11.0 // indirect
