@@ -143,14 +143,14 @@ func (f *Forward) ServeDNS(ctx context.Context, w dns.ResponseWriter, r *dns.Msg
 		})
 
 		var (
-			ret *dns.Msg
-			err error
+			ret     *dns.Msg
+			records []dns.RR
+			err     error
 		)
 		opts := f.opts
 
 		for {
-			ret, err = proxy.Connect(ctx, state, opts)
-
+			ret, records, err = proxy.Connect(ctx, state, opts)
 			if err == ErrCachedClosed { // Remote side closed conn, can only happen with TCP.
 				continue
 			}
@@ -184,6 +184,25 @@ func (f *Forward) ServeDNS(ctx context.Context, w dns.ResponseWriter, r *dns.Msg
 			break
 		}
 
+		if records != nil {
+			ch := make(chan *dns.Envelope)
+			defer close(ch)
+			tr := new(dns.Transfer)
+			go tr.Out(w, r, ch)
+			j, l := 0, 0
+			for i, r := range records {
+				l += dns.Len(r)
+				if l > 65000 {
+					ch <- &dns.Envelope{RR: records[j:i]}
+					l = 0
+					j = i
+				}
+			}
+			if j < len(records) {
+				ch <- &dns.Envelope{RR: records[j:]}
+			}
+			return 0, nil
+		}
 		// Check if the reply is correct; if not return FormErr.
 		if !state.Match(ret) {
 			debug.Hexdumpf(ret, "Wrong reply for id: %d, %s %d", ret.Id, state.QName(), state.QType())
